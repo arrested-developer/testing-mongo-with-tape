@@ -17,6 +17,14 @@ the cheeses in the database. A `PUT` request to /cheeses/yourcheesename will add
 a new cheese to the database, and a GET request to that same URL will then
 subsequently return that cheese from the database.
 
+## File Structure
+
+This is by no means a definitive way to organise your Express projects, but it
+is certainly one way.
+
+|-public |-all |-the |-public |-files |-src |-database |-queries |-all |-the
+|-queries |-dbConnection |-
+
 ## Environment variables
 
 The `.env` file for this project has been included. I recommend that you use a
@@ -58,7 +66,7 @@ run in series, and then to control when each test ends. In the setup test, we
 have put `t.end()` within a `.then()` statement in order to run it after each
 query has executed.
 
-In the tests that run the query, we have used `t.plan()` to state how many
-assertions will be made in our test before it ends. By doing this we make sure
-that the test will not end early, and that Tape will not move onto the next test
-while the existing database connection is open.
+In the tests that make assertions based on the results of a query, we have used
+`t.plan()` to state how many assertions will be made in our test before it ends.
+By doing this we make sure that the test will not end early, and that Tape will
+not move onto the next test while the existing database connection is open.
