@@ -27,6 +27,10 @@ database will be erased and rebuilt for every test run, whereas the "normal"
 database will remain populated with whatever you put in it, unless you clear it
 out yourself. We keep the data separate by giving the databases different names.
 
+Note that the test script in `package.json` sets the `NODE_ENV` environment
+variable to test before running Tape. Some test runners will do this
+automatically for you (but not Tape).
+
 ## Managing the database connection
 
 The database is initialised once, upon running `app.js`. After this, we can
@@ -45,9 +49,9 @@ client.
 
 You'll notice in `tests/queries.test.js` that the first test doesn't actually
 test anything. Tape runs tests in series, so it will (very helpfully) wait for
-each test to be resolved before moving to the next one. When we're dealing with
-async tests this is very important, as we could easily end up in the situation
-where one set of database tests is still running while another one starts.
+each test to be resolved before moving to the next one. We use this first test
+to tear down any data in the test database, then rebuild it using our predefined
+dummy data.
 
 The most crucial part of getting async tests to work nicely is to know that they
 run in series, and then to control when each test ends. In the setup test, we

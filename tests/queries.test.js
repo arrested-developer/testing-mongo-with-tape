@@ -6,6 +6,7 @@ const {
 } = require("../src/database/dbTestBuild");
 const findAllCheeses = require("../src/database/queries/findAllCheeses");
 
+console.log("node env", process.env.NODE_ENV);
 // Put database setup in a test, Tape will wait until this
 // test has ended before running the next one
 test("database setup", t => {
