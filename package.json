@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:build": "node src/database/dbTestBuild.js",
-    "test": "tape tests/**.test.js | tap-spec",
-    "database-test-build": "node ./src/database/dbTestBuild.js"
+    "start": "node app.js",
+    "test": "tape tests/**.test.js | tap-spec"
   },
   "keywords": [],
   "author": "",

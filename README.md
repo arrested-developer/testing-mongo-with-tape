@@ -2,6 +2,9 @@
 
 ## Getting started
 
+To run this demo, you will need to have Node and npm installed, and you will
+need to have a local installation of mongodb up and running.
+
 - Clone this repo, and run `npm install`
 - Run `npm start` to run the server at port 4321
 - Run `npm test` to see the tests
