@@ -38,7 +38,7 @@ test("async test 1", t => {
   });
 });
 
-test("async test 1", t => {
+test("async test 2", t => {
   // state how many assertions will be made
   t.plan(2);
   // open new db connection for these tests
