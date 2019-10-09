@@ -23,7 +23,7 @@ test("database setup", t => {
 // database was already initialised, we know that more than one test
 // is trying to connect to the database at once.
 
-test("async test 1", async t => {
+test("async test 1", t => {
   // state how many test assertions will be made
   t.plan(1);
   // open new db connection for these tests
@@ -32,13 +32,13 @@ test("async test 1", async t => {
     findAllCheeses(db)
       .then(cheeses => {
         t.equal(cheeses.length, 2, "cheeses array has length 2");
-        t.end();
+        //t.end();
       })
       .then(closeDb);
   });
 });
 
-test("async test 1", async t => {
+test("async test 1", t => {
   // state how many assertions will be made
   t.plan(2);
   // open new db connection for these tests
@@ -48,7 +48,7 @@ test("async test 1", async t => {
       .then(cheeses => {
         t.equal(cheeses[0].name, "brie", "first cheese is named brie");
         t.equal(cheeses[1].name, "cheddar", "second cheese is named cheddar");
-        t.end();
+        //t.end();
       })
       .then(closeDb);
   });
